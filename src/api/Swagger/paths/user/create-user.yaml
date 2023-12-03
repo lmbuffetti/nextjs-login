@@ -1,0 +1,39 @@
+tags :
+  - User
+summary: Create a new user
+description: Create a new user
+produces:
+  - application/json
+consumes:
+  - application/json
+parameters:
+  - in: body
+    name: user
+    description: The user to create.
+    schema:
+      type: object
+      required:
+        - email
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+responses:
+  200:
+    description: User saved successfully
+    schema:
+      type: object
+      $ref: ../../definitions/User.yaml
+  400:
+    description: Error in saving user
+    schema:
+      type: object
+      $ref: ../../definitions/CommonErrorResponse.yaml
+  500:
+    description: Error in saving user
+    schema:
+      type: object
+      $ref: ../../definitions/CommonErrorResponse.yaml

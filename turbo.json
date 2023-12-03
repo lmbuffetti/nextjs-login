@@ -1,0 +1,24 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "type-check": {
+      "dependsOn": ["^type-check"]
+    },
+    "t:extract": {
+      "dependsOn": ["^t:extract"]
+    },
+    "t:diff-check": {
+      "dependsOn": ["^t:diff-check"]
+    },
+    "precommit": {},
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "lint": {},
+    "lint:fix": {},
+    "test": {
+      "dependsOn": ["^test"]
+    }
+  }
+}

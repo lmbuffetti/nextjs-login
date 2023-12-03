@@ -1,0 +1,14 @@
+# User API
+/auth/register:
+  post:
+    $ref: ./user/create-user.yaml
+/users/{id}:
+  get:
+    $ref: ./user/user-get.yaml
+  put:
+    $ref: ./user/user-update.yaml
+  delete:
+    $ref: ./user/user-delete.yaml
+/users/list:
+  get:
+    $ref: ./user/user-list.yaml

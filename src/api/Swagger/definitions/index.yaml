@@ -1,0 +1,6 @@
+CommonResponse:
+  $ref: ./CommonResponse.yaml
+CommonErrorResponse:
+  $ref: ./CommonErrorResponse.yaml
+User:
+  $ref: ./User.yaml
