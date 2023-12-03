@@ -4,7 +4,10 @@ import '@/assets/styles/globals.css'
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
-import { LanguageList } from '@/@types/i18n'
+import Sidebar from '@/components/Navigation/Sidebar'
+import {UserClass} from '@/api/Models/Users';
+import {getServerSession} from 'next-auth/next';
+import {authOptions} from '@/app/api/auth/[...nextauth]/route';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -30,9 +33,15 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const session: UserClass = await getServerSession(authOptions)
   return (
     <html lang="en">
-      <body className={inter.variable}>{children}</body>
+      <body className={inter.variable}>
+        <div className="flex">
+          <Sidebar loggedUser={session} />
+          <div className="w-full">{children}</div>
+        </div>
+      </body>
     </html>
   )
 }

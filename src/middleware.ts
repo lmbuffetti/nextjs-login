@@ -6,7 +6,7 @@ const locales = ['en', 'it']
 export default async function middleware(request: NextRequest) {
   const token = await getToken({ req: request })
   const { pathname } = request.nextUrl
-  console.log(pathname);
+  console.log(pathname)
   if (!token && pathname === '/') {
     return NextResponse.redirect(new URL('/login', request.url))
   }

@@ -2,7 +2,6 @@ import bcrypt from 'bcrypt'
 import mongoose from 'mongoose'
 
 import connectDB from '@/api/lib/connect-db'
-import { Roles } from '@/api/Models/Roles'
 import { User, UserClass } from '@/api/Models/Users'
 import { stringToObjectId, validateEmail } from '@/utils/utils'
 
@@ -46,9 +45,6 @@ export async function createUser(data: UserClass) {
     const salt = bcrypt.genSaltSync(saltRounds)
     const hash = bcrypt.hashSync(data.password, salt)
 
-    if (data?.role) {
-      data.role = new mongoose.Types.ObjectId(data.role)
-    }
     if (!validateEmail(data.email)) {
       return { error: { message: 'Email not valid' } }
     }
@@ -56,9 +52,6 @@ export async function createUser(data: UserClass) {
       data._id = new mongoose.Types.ObjectId(data.id)
     } else {
       data._id = new mongoose.Types.ObjectId()
-    }
-    if (data.role) {
-      data.role = new mongoose.Types.ObjectId(data.role)
     }
     return await User.create({
       ...data,
@@ -90,15 +83,8 @@ export async function getUser(id: string) {
     if (!parsedId) {
       return { error: 'User not found' }
     }
-    const user = await User.findById(parsedId).lean().exec()
-    if (user && user.role) {
-      const userRole = await Roles.findById(
-        stringToObjectId(user.role.toString()),
-      )
-        .lean()
-        .exec()
-      delete user.password
-      user.role = userRole.name
+    const user = await User.findById(parsedId, {password: 0}).lean().exec()
+    if (user) {
       return user
     } else {
       return { error: { message: 'User not found' } }

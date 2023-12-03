@@ -69,14 +69,6 @@ module.exports = {
       },
     ],
     'formatjs/enforce-placeholders': 'error',
-    'formatjs/no-literal-string-in-jsx': [
-      'error',
-      {
-        props: {
-          include: [['ActionCircle', 'tooltip']],
-        },
-      },
-    ],
     'formatjs/no-multiple-whitespaces': 'error',
     'formatjs/no-offset': 'error',
   },
