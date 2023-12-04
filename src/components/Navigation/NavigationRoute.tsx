@@ -1,5 +1,6 @@
 import {
   ArrowLeftOnRectangleIcon,
+  BookOpenIcon,
   HomeIcon,
   PencilSquareIcon,
 } from '@heroicons/react/24/solid'
@@ -9,6 +10,11 @@ export const sidebarNavigation = [
     label: 'Dashboard',
     icon: <HomeIcon className="w-6" />,
     href: `/`,
+  },
+  {
+    label: 'API Documentation',
+    icon: <BookOpenIcon className="w-6" />,
+    href: `/api-doc`,
   },
 ]
 

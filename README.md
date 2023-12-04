@@ -64,4 +64,4 @@ Under `src` folder is possible to find all project files:
 
 ## API
 
-Postman documentation [DOCS](https://mattia-buffetti.postman.co/workspace/Team-Workspace~cab353ba-5e7a-4934-8ffe-1cd2c62ab6bf/documentation/31241551-3be639a3-945a-4993-b6ea-2043ef81f34a)
+Swagger documentation [DOCS](https://nextjs-login-bay.vercel.app/api-doc)
