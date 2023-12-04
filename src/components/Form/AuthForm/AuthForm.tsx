@@ -111,6 +111,7 @@ export default function AuthForm({ type }: { type: 'login' | 'register' }) {
       {formError && <div className="text-red-600">{formError}</div>}
 
       <button
+        type="submit"
         disabled={loading}
         className={`${
           loading

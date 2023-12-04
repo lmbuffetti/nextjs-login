@@ -12,6 +12,12 @@ module.exports = defineConfig({
   runMode: 3,
   video: false,
 
+  env: {
+    foo: 'bar',
+    baz: 'quux',
+    API_URL: 'http://localhost:3000',
+  },
+
   e2e: {
     testIsolation: false,
     // supportFile: './cypress/support/index.js',

@@ -28,8 +28,8 @@ export default async function handler(
     }
   }
 
-  let urlCall = `${process.env.API_URL}/api/${url}`
-
+  let urlCall = `/api/${url}`
+  console.log(process.env);
   if (queryParam) {
     urlCall += `?${queryParam}`
   }

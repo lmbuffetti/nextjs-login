@@ -16,7 +16,7 @@
     "dev": "next dev",
     "dev-turbo": "turbo run dev",
     "build": "turbo builds",
-    "builds": "pnpm test-dom && pnpm test-node && next build",
+    "builds": "pnpm test-dom && pnpm test-node && next build && pnpm test-cypress",
     "start": "next start",
     "lint": "next lint --fix && tsc",
     "lint-turbo": "turbo run lint",
@@ -26,6 +26,8 @@
     "test-dom": "NODE_ENV=test jest ./src/__tests__ --config ./jest.config.dom.ts",
     "test-node": "NODE_ENV=test jest ./src/__tests__ --config ./jest.config.node.ts --detectOpenHandles --forceExit",
     "cypress:open": "cypress open",
+    "e2e": "npx cypress run --e2e --headless --browser chrome",
+    "test-cypress": "next start & npm run e2e",
     "create-doc": "swagger-cli bundle src/api/Swagger/index.yaml --outfile src/api/Swagger/index.json"
   },
   "dependencies": {
