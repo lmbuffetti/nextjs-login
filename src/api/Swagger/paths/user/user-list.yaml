@@ -1,0 +1,37 @@
+tags :
+  - User
+summary: Get all the contacts
+description: Get all the contacts
+produces:
+  - application/json
+parameters:
+  - in: query
+    name: page
+    description: The user to create.
+    schema:
+      type: object
+      required:
+        - email
+      properties:
+        page:
+  - in: query
+    name: limit
+    description: The user to create.
+    schema:
+      type: object
+      required:
+        - email
+      properties:
+        page:
+responses:
+  200:
+    description: Contacts fetched successfully
+    schema:
+      type: array
+      items:
+        $ref: ../../definitions/UserList.yaml
+  400:
+    description: Error in fetching contacts
+    schema:
+      type: object
+      $ref: ../../definitions/CommonResponse.yaml

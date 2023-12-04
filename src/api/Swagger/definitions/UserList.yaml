@@ -1,0 +1,12 @@
+type: object
+properties:
+  data:
+    type: array
+    items:
+      $ref: './User.yaml'
+  page:
+    type: number
+  limit:
+    type: number
+  total:
+    type: number
