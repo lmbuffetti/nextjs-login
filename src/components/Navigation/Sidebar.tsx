@@ -44,7 +44,7 @@ export default function Sidebar({loggedUser}: {loggedUser: UserClass}) {
           ))}
           {
             loggedUser ? (
-              sidebarNavigationGuest.map(({ label, icon, href }, index) => (
+              sidebarNavigationLoggedIn.map(({ label, icon, href }, index) => (
                 <li key={index}>
                   <a
                     href={href}
@@ -56,7 +56,7 @@ export default function Sidebar({loggedUser}: {loggedUser: UserClass}) {
                 </li>
               ))
             ) : (
-              sidebarNavigationLoggedIn.map(({ label, icon, href }, index) => (
+              sidebarNavigationGuest.map(({ label, icon, href }, index) => (
                 <li key={index}>
                   <a
                     href={href}

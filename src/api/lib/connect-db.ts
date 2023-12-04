@@ -44,7 +44,7 @@ async function connectDB(dbUrl: string = MONGODB_URI) {
       .catch(error => {
         // eslint-disable-next-line no-console
         // console.error('❌ Connection to database failed')
-        throw error
+        return error
       })
   }
 
