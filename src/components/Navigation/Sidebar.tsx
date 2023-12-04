@@ -5,14 +5,15 @@ import '@/styles/header.css'
 import Image from 'next/image'
 import { useState } from 'react'
 
+import { UserClass } from '@/api/Models/Users'
 import {
   sidebarNavigation,
-  sidebarNavigationGuest, sidebarNavigationLoggedIn,
+  sidebarNavigationGuest,
+  sidebarNavigationLoggedIn,
 } from '@/components/Navigation/NavigationRoute'
 import logoWhite from '@/images/logoWhite.png'
-import {UserClass} from '@/api/Models/Users';
 
-export default function Sidebar({loggedUser}: {loggedUser: UserClass}) {
+export default function Sidebar({ loggedUser }: { loggedUser: UserClass }) {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <aside
@@ -42,9 +43,8 @@ export default function Sidebar({loggedUser}: {loggedUser: UserClass}) {
               </a>
             </li>
           ))}
-          {
-            loggedUser ? (
-              sidebarNavigationLoggedIn.map(({ label, icon, href }, index) => (
+          {loggedUser
+            ? sidebarNavigationLoggedIn.map(({ label, icon, href }, index) => (
                 <li key={index}>
                   <a
                     href={href}
@@ -55,8 +55,7 @@ export default function Sidebar({loggedUser}: {loggedUser: UserClass}) {
                   </a>
                 </li>
               ))
-            ) : (
-              sidebarNavigationGuest.map(({ label, icon, href }, index) => (
+            : sidebarNavigationGuest.map(({ label, icon, href }, index) => (
                 <li key={index}>
                   <a
                     href={href}
@@ -66,9 +65,7 @@ export default function Sidebar({loggedUser}: {loggedUser: UserClass}) {
                     <span className="ml-3">{label}</span>
                   </a>
                 </li>
-              ))
-            )
-          }
+              ))}
         </ul>
       </div>
     </aside>

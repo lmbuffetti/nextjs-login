@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Logo from '@/images/logo.png'
 
 import AuthForm from '@/components/Form/AuthForm/AuthForm'
+import Logo from '@/images/logo.png'
 
 export default function Login() {
   return (

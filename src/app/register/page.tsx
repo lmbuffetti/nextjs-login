@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import AuthForm from '@/components/Form/AuthForm/AuthForm'
-import Logo from '@/images/logo.png';
+import Logo from '@/images/logo.png'
 
 export default function Register() {
   return (
@@ -18,16 +18,12 @@ export default function Register() {
               width={20}
             />
           </Link>
-          <h3 className="text-xl font-semibold">
-            Sign Up
-          </h3>
+          <h3 className="text-xl font-semibold">Sign Up</h3>
           <p className="text-sm text-gray-500">
             Create an account with your email and password
           </p>
         </div>
-        <AuthForm
-          type="register"
-        />
+        <AuthForm type="register" />
       </div>
     </div>
   )

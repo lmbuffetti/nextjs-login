@@ -123,7 +123,7 @@ export default function AuthForm({ type }: { type: 'login' | 'register' }) {
       </button>
       {type === 'login' ? (
         <p className="text-center text-sm text-gray-600">
-          Don't have an account?
+          Don&apos;t have an account?
           <Link
             href="/register"
             className="mx-1 font-semibold text-gray-800"

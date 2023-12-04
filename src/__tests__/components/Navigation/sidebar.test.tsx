@@ -13,7 +13,6 @@ import {
 } from '@/components/Navigation/NavigationRoute'
 
 describe('Sidebar Navigation', () => {
-
   it('Links logged user as User', async () => {
     const mockSession: any = {
       expires: '1',
@@ -24,11 +23,7 @@ describe('Sidebar Navigation', () => {
     const loggedUser = mockSession.user
 
     // @ts-ignore
-    render(
-      <Sidebar
-        loggedUser={loggedUser}
-      />,
-    )
+    render(<Sidebar loggedUser={loggedUser} />)
     sidebarNavigation.forEach(({ label }) => {
       expect(screen.queryByText(label)).toBeInTheDocument()
     })
@@ -44,11 +39,7 @@ describe('Sidebar Navigation', () => {
     const loggedUser = undefined
 
     // @ts-ignore
-    render(
-      <Sidebar
-        loggedUser={loggedUser}
-      />,
-    )
+    render(<Sidebar loggedUser={loggedUser} />)
     sidebarNavigation.forEach(({ label }) => {
       expect(screen.queryByText(label)).toBeInTheDocument()
     })

@@ -83,7 +83,7 @@ export async function getUser(id: string) {
     if (!parsedId) {
       return { error: 'User not found' }
     }
-    const user = await User.findById(parsedId, {password: 0}).lean().exec()
+    const user = await User.findById(parsedId, { password: 0 }).lean().exec()
     if (user) {
       return user
     } else {

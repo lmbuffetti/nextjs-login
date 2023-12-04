@@ -3,11 +3,11 @@ import '@/assets/styles/globals.css'
 
 import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { getServerSession } from 'next-auth/next'
 
+import { UserClass } from '@/api/Models/Users'
+import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import Sidebar from '@/components/Navigation/Sidebar'
-import {UserClass} from '@/api/Models/Users';
-import {getServerSession} from 'next-auth/next';
-import {authOptions} from '@/app/api/auth/[...nextauth]/route';
 
 const inter = Inter({
   variable: '--font-inter',

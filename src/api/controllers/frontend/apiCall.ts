@@ -1,5 +1,3 @@
-import * as process from 'process'
-
 import endpointLists from '@/api/controllers/frontend/endpoints'
 
 export default async function handler(
@@ -29,7 +27,6 @@ export default async function handler(
   }
 
   let urlCall = `/api/${url}`
-  console.log(process.env);
   if (queryParam) {
     urlCall += `?${queryParam}`
   }

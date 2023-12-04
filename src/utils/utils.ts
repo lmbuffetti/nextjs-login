@@ -1,15 +1,4 @@
 import mongoose from 'mongoose'
-import ms from 'ms'
-import { NextResponse } from 'next/server'
-
-export const timeAgo = (timestamp: Date, timeOnly?: boolean): string => {
-  if (!timestamp) {
-    return 'never'
-  }
-  return `${ms(Date.now() - new Date(timestamp).getTime())}${
-    timeOnly ? '' : ' ago'
-  }`
-}
 
 export function stringToObjectId(id: string): mongoose.Types.ObjectId | string {
   if (mongoose.Types.ObjectId.isValid(id)) {
@@ -17,21 +6,6 @@ export function stringToObjectId(id: string): mongoose.Types.ObjectId | string {
   } else {
     return id
   }
-}
-
-export function createErrorResponse(
-  message: string,
-  statusCode: number,
-): NextResponse {
-  const errorResponse = {
-    status: statusCode >= 500 ? 'error' : 'fail',
-    message,
-  }
-
-  return new NextResponse(JSON.stringify(errorResponse), {
-    status: statusCode,
-    headers: { 'Content-Type': 'application/json' },
-  })
 }
 
 export const validateEmail = email => {
