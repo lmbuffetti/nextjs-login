@@ -93,5 +93,6 @@
     "eslint-plugin-tailwindcss": "3.13.0",
     "ts-node": "latest",
     "typescript": "latest"
-  }
+  },
+  "packageManager": "pnpm@8.11.0"
 }
