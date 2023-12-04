@@ -25,7 +25,7 @@ if (!cached) {
   cached = global.mongoose = { conn: null, promise: null }
 }
 
-async function connectDB(dbUrl: string = MONGODB_URI) {
+async function connectDB(dbUrl: string = MONGODB_URI || '') {
   if (cached.conn) {
     // eslint-disable-next-line no-console
     // console.log('🚀 Using cached connection')

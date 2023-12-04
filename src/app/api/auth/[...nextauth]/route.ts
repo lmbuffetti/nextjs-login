@@ -21,7 +21,7 @@ export const authOptions: NextAuthOptions = {
         }
         await connectDB()
 
-        const users = await User.find({ email: email }).exec()
+        const users: any = await User.find({ email: email }).exec()
 
         const user = users[0]
 
@@ -40,12 +40,12 @@ export const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async session(data) {
-      const users = await getUser(data.token.sub)
+      const users = await getUser(data?.token?.sub || '')
       delete data.token._id
       return { ...data.session, ...users, _id: data.token.sub, ...data.token }
     },
     async jwt({ token }) {
-      const users = await getUser(token.sub)
+      const users = await getUser(token?.sub || '')
       return { ...token, ...users }
     },
   },

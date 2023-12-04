@@ -6,7 +6,7 @@ import {
   updateUser,
 } from '@/api/controllers/backend/user-db'
 
-const data = {
+const data: any = {
   id: '656c7a67e7a9bc62bb5fa656',
   name: 'Essie Singleton',
   password: 'test.99',

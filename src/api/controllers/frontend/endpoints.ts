@@ -4,12 +4,7 @@ const endpointLists = {
   login: () => 'auth/register/',
   // USERS
   getAllUsers: () => 'users/list/',
-  userById: userID => `users/${userID}/`,
-
-  // RECIPES
-  addRecipe: () => 'recipes/addRecipe/',
-  getAllRecipes: () => 'recipes/list/',
-  recipeById: recipeID => `recipes/${recipeID}/`,
+  userById: (userID: string) => `users/${userID}/`,
 }
 
 export default endpointLists

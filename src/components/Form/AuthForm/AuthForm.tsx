@@ -26,7 +26,7 @@ export default function AuthForm({ type }: { type: 'login' | 'register' }) {
             redirect: false,
             email: formValue.email,
             password: formValue.password,
-          }).then(res => {
+          }).then((res: any) => {
             if (res.status === 200) {
               router.refresh()
               router.push(`/`)

@@ -7,7 +7,7 @@ export default async function handler(
   id?: string,
   queryParam?: string,
 ) {
-  const url = endpointLists[type](id)
+  const url = endpointLists[type](id || '')
 
   let optionsRequest: RequestInit = {
     method: requestType,

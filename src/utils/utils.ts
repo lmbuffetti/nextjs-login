@@ -8,7 +8,7 @@ export function stringToObjectId(id: string): mongoose.Types.ObjectId | string {
   }
 }
 
-export const validateEmail = email => {
+export const validateEmail = (email: string) => {
   return String(email)
     .toLowerCase()
     .match(

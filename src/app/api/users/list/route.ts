@@ -21,14 +21,14 @@ export async function GET(req: NextRequest) {
   const isAuth = await getLevel(req, 'admin')
   const url = new URL(req.url)
 
-  const page = +url.searchParams.get('page')
-  const limit = +url.searchParams.get('limit')
+  const page = url.searchParams.get('page') || 1
+  const limit = url.searchParams.get('limit') || 10
   if (!isAuth) {
     return NextResponse.json(
       { error: 'You are not authorised' },
       { status: 500 },
     )
   }
-  const users = await getUsers({ page, limit })
+  const users = await getUsers({ page: +page, limit: +limit })
   return NextResponse.json(users)
 }
