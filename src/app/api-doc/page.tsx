@@ -7,11 +7,6 @@ import { UserClass } from '@/api/Models/Users'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 
 export default async function IndexPage() {
-  const loggedUser: UserClass = await getServerSession(authOptions)
-  if (loggedUser.role !== 'admin') {
-    redirect('/it/login')
-  }
-
   return (
     <section className="container">
       <ReactSwagger spec={APIDoc} />
