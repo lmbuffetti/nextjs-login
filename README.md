@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Documentation
 
-## Getting Started
+Vercel - https://vercel.com/docs <br />
+Mongo https://www.mongodb.com/docs/ <br />
+TailwindCSS - https://tailwindcss.com/docs/installation <br />
+NextJS - https://nextjs.org/docs <br />
 
-First, run the development server:
+## Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+https://nextjs-login-bay.vercel.app
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How to Use
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Rename `.env.example` to `.env` and fill all the fields.
 
-## Learn More
+To generate a new secret key run:
 
-To learn more about Next.js, take a look at the following resources:
+`openssl rand -base64 32`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To get a `MONGODB_URI` after created your account and signed in to your project, on the sidebar click on `Database` and then choose the tab `Overview` and after click on button `Connect`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+It will open a a modal, here select `Drivers` here copy the url under the third point (3. Add your connection string into your application code) until the last slash, you can ignore `?retryWrites=true&w=majority` and after the last slash add the name of the database you want to use.
 
-## Deploy on Vercel
+### Install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Node version required: `20.10.x` - [Download](https://nodejs.org/dist/v18.15.0/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This version is required to use SwaggerUI
+
+Install globally pnpm and vercel:
+
+`
+npm install -g pnpm vercel
+`
+
+Run:
+
+`pnpm run install`
+
+To start the project:
+
+`pnpm run dev`
+
+To check if Eslint is correct:
+
+`pnpm run lint`
+
+
+### Project Tree
+
+On the root of the project it possibile to find all configuration files:
+
+- .env - .env.development.local: are used to store all security keys to connect to databasee, etc.
+- tailwind.config.js: is used to configure tailwindcss
+- tsconfig.json: is used to configure typescript
+- .eslintrc.js: is used to configure eslint and prettier
+
+Under `src` folder is possible to find all project files:
+
+- @types: is a folder to content all general types and Model
+- app: it is the core of NextJS project ([DOCS](https://nextjs.org/docs/app/building-your-application/routing))
+
+## API
+
+Postman documentation [DOCS](https://mattia-buffetti.postman.co/workspace/Team-Workspace~cab353ba-5e7a-4934-8ffe-1cd2c62ab6bf/documentation/31241551-3be639a3-945a-4993-b6ea-2043ef81f34a)
