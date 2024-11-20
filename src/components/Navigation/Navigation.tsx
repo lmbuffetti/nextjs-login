@@ -2,7 +2,6 @@
 
 import '@/styles/components/header.css'
 
-import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
 import { UserClass } from '@/api/Models/Users'
@@ -15,7 +14,6 @@ type Navigation = {
 
 export default function Navigation({ loggedUser }: Navigation) {
   const [isOpenSidebar, setIsOpenSidebar] = useState(false)
-  const pathname = usePathname()
   return (
     <div data-testid="navigation-bar">
       <Header

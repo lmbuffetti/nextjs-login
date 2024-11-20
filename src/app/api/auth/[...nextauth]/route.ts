@@ -41,21 +41,19 @@ export const authOptions: NextAuthOptions = {
       try {
         const users = await getUser(data.token.sub)
         delete data.token._id
-        return {...data.session, ...users, _id: data.token.sub, ...data.token}
-      }
-      catch (err) {
+        return { ...data.session, ...users, _id: data.token.sub, ...data.token }
+      } catch (err) {
         console.error(err)
-        return {...data.session, _id: data.token.sub, ...data.token}
+        return { ...data.session, _id: data.token.sub, ...data.token }
       }
     },
     async jwt({ token }) {
       try {
         const users = await getUser(token.sub)
-        return {...token, ...users}
-      }
-      catch (err) {
+        return { ...token, ...users }
+      } catch (err) {
         console.error(err)
-        return {...token}
+        return { ...token }
       }
     },
   },

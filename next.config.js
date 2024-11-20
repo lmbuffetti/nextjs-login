@@ -6,10 +6,7 @@ const nextConfig = {
     'swagger-client',
     'swagger-ui-react',
   ],
-  experimental: {
-    esmExternals: "loose",
-    serverComponentsExternalPackages: ['mongoose', '@typegoose/typegoose'],
-  },
+  serverExternalPackages: ['mongoose', '@typegoose/typegoose'],
 }
 
 module.exports = nextConfig

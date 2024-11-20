@@ -17,7 +17,7 @@ export default function AuthForm({ type }: { type: 'login' | 'register' }) {
   const [formError, setFormError] = useState('')
   const router = useRouter()
 
-  const submitForm = async (e) => {
+  const submitForm = async e => {
     e.preventDefault()
     if (type === 'login') {
       signIn('credentials', {
@@ -33,7 +33,6 @@ export default function AuthForm({ type }: { type: 'login' | 'register' }) {
           setFormError(res.error)
         }
       })
-
     } else {
       const userData = handler('login', 'POST', formValue)
       userData
