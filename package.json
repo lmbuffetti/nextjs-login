@@ -25,7 +25,8 @@
     "cypress:open": "cypress open",
     "e2e": "cypress run --e2e --headless --browser chrome",
     "test-cypress": "next start & npm run e2e",
-    "create-doc": "swagger-cli bundle src/api/Swagger/index.yaml --outfile src/api/Swagger/index.json"
+    "create-doc": "swagger-cli bundle src/api/Swagger/index.yaml --outfile src/api/Swagger/index.json",
+    "vercel-build": "yarn global add node-gyp sharp && pnpm build"
   },
   "dependencies": {
     "@heroicons/react": "2.2.0",

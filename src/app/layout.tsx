@@ -6,6 +6,8 @@ import { Inter } from 'next/font/google'
 import { getServerSession } from 'next-auth/next'
 import NextTopLoader from 'nextjs-toploader'
 
+import { Analytics } from '@vercel/analytics/next';
+
 import { UserClass } from '@/api/Models/Users'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import Sidebar from '@/components/Navigation/Sidebar'
@@ -46,6 +48,7 @@ export default async function RootLayout({
           <Sidebar loggedUser={session} />
           <div className="w-full">{children}</div>
         </div>
+        <Analytics />
       </body>
     </html>
   )
