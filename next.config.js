@@ -7,6 +7,7 @@ const nextConfig = {
     'swagger-ui-react',
   ],
   experimental: {
+    esmExternals: "loose",
     serverComponentsExternalPackages: ['mongoose', '@typegoose/typegoose'],
   },
 }

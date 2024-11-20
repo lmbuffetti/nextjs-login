@@ -17,35 +17,38 @@ export default function AuthForm({ type }: { type: 'login' | 'register' }) {
   const [formError, setFormError] = useState('')
   const router = useRouter()
 
+  const submitForm = async (e) => {
+    e.preventDefault()
+    if (type === 'login') {
+      signIn('credentials', {
+        redirect: false,
+        email: formValue.email,
+        password: formValue.password,
+      }).then(res => {
+        if (res.status === 200) {
+          router.refresh()
+          router.push(`/`)
+          setLoading(false)
+        } else {
+          setFormError(res.error)
+        }
+      })
+
+    } else {
+      const userData = handler('login', 'POST', formValue)
+      userData
+        .then(() => {
+          router.push(`/login`)
+        })
+        .catch(err => {
+          setFormError(err.message)
+        })
+    }
+  }
+
   return (
     <form
-      onSubmit={async e => {
-        e.preventDefault()
-        if (type === 'login') {
-          signIn('credentials', {
-            redirect: false,
-            email: formValue.email,
-            password: formValue.password,
-          }).then(res => {
-            if (res.status === 200) {
-              router.refresh()
-              router.push(`/`)
-              setLoading(false)
-            } else {
-              setFormError(res.error)
-            }
-          })
-        } else {
-          const userData = handler('login', 'POST', formValue)
-          userData
-            .then(() => {
-              router.push(`/login`)
-            })
-            .catch(err => {
-              setFormError(err.message)
-            })
-        }
-      }}
+      onSubmit={submitForm}
       className="flex flex-col space-y-4 bg-gray-50 px-4 py-8 sm:px-16"
     >
       {type === 'register' && (

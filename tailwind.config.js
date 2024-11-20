@@ -6,7 +6,17 @@ module.exports = {
     './public/**/*.html',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'primary': {
+          100: '#1f2937',
+          200: '#444e5e',
+          300: '#6d7788',
+          400: '#98a2b4',
+          500: '#c5d0e3',
+        },
+      },
+    },
   },
   plugins: [],
 }

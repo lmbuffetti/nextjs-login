@@ -1,5 +1,6 @@
 import {
-  ArrowLeftOnRectangleIcon,
+  ArrowLeftStartOnRectangleIcon,
+  BookOpenIcon,
   HomeIcon,
   PencilSquareIcon,
 } from '@heroicons/react/24/solid'
@@ -15,7 +16,7 @@ export const sidebarNavigation = [
 export const sidebarNavigationGuest = [
   {
     label: 'Sign In',
-    icon: <ArrowLeftOnRectangleIcon className="w-6" />,
+    icon: <ArrowLeftStartOnRectangleIcon className="w-6" />,
     href: `/login`,
   },
   {
@@ -27,8 +28,13 @@ export const sidebarNavigationGuest = [
 
 export const sidebarNavigationLoggedIn = [
   {
+    label: 'API Docs',
+    icon: <BookOpenIcon className="w-6" />,
+    href: `/api-doc`,
+  },
+  {
     label: 'Sign Out',
-    icon: <ArrowLeftOnRectangleIcon className="w-6" />,
+    icon: <ArrowLeftStartOnRectangleIcon className="w-6" />,
     href: '/login',
   },
 ]
