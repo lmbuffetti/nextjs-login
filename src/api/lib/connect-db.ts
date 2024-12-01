@@ -10,6 +10,7 @@ declare global {
 
 const MONGODB_URI = process.env.MONGODB_URI
 
+
 if (!MONGODB_URI || MONGODB_URI.length === 0) {
   console.error(`Please add your MongoDB URI to .env.local ${MONGODB_URI} ${JSON.stringify(process.env)}`)
 }
