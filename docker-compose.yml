@@ -1,0 +1,10 @@
+
+services:
+  nextapp:
+    container_name: nextjs-login
+    image: nextjs-login
+    build: .
+    ports:
+      - "5800:5800"
+    volumes:
+      - /app/dist

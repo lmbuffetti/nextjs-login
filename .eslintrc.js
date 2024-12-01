@@ -16,6 +16,7 @@ module.exports = {
     'plugin:tailwindcss/recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
+    'next',
   ],
   plugins: [
     '@typescript-eslint',
