@@ -25,7 +25,7 @@
     "e2e": "cypress run --e2e --headless --browser chrome",
     "test-cypress": "next start & npm run e2e",
     "create-doc": "swagger-cli bundle src/api/Swagger/index.yaml --outfile src/api/Swagger/index.json",
-    "vercel-build": "pnpm global add node-gyp sharp && pnpm build"
+    "vercel-build": "pnpm build"
   },
   "dependencies": {
     "@heroicons/react": "2.2.0",
@@ -73,7 +73,6 @@
     "react-hot-toast": "2.4.1",
     "react-image-crop": "11.0.7",
     "react-select": "5.8.3",
-    "sharp": "0.33.5",
     "swagger-cli": "4.0.4",
     "swagger-ui-react": "5.18.2",
     "swr": "2.2.5",
