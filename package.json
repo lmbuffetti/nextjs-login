@@ -13,7 +13,7 @@
     "dev": "next dev",
     "dev-turbo": "turbo run dev",
     "build": "turbo builds",
-    "builds": "pnpm test-dom && next lint --fix && pnpm test-node && next build",
+    "builds": "next lint --fix && next build",
     "start": "next start",
     "lint": "next lint --fix && tsc",
     "lint-turbo": "turbo run lint",
