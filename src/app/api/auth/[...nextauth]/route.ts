@@ -24,7 +24,6 @@ export const authOptions: NextAuthOptions = {
         const users = await User.find({ email: email }).exec()
 
         const user = users[0]
-
         if (!user) {
           throw new Error('User not found')
         }
@@ -33,20 +32,29 @@ export const authOptions: NextAuthOptions = {
         if (!passCheck) {
           throw new Error('Password is incorrect')
         }
-        delete user[0]._id
-        return user[0]
+        return user
       },
     }),
   ],
   callbacks: {
     async session(data) {
-      const users = await getUser(data.token.sub)
-      delete data.token._id
-      return { ...data.session, ...users, _id: data.token.sub, ...data.token }
+      try {
+        const users = await getUser(data.token.sub)
+        delete data.token._id
+        return { ...data.session, ...users, _id: data.token.sub, ...data.token }
+      } catch (err) {
+        console.error(err)
+        return { ...data.session, _id: data.token.sub, ...data.token }
+      }
     },
     async jwt({ token }) {
-      const users = await getUser(token.sub)
-      return { ...token, ...users }
+      try {
+        const users = await getUser(token.sub)
+        return { ...token, ...users }
+      } catch (err) {
+        console.error(err)
+        return { ...token }
+      }
     },
   },
 }

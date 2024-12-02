@@ -16,6 +16,7 @@ module.exports = {
     'plugin:tailwindcss/recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
+    'next',
   ],
   plugins: [
     '@typescript-eslint',
@@ -69,14 +70,6 @@ module.exports = {
       },
     ],
     'formatjs/enforce-placeholders': 'error',
-    'formatjs/no-literal-string-in-jsx': [
-      'error',
-      {
-        props: {
-          include: [['ActionCircle', 'tooltip']],
-        },
-      },
-    ],
     'formatjs/no-multiple-whitespaces': 'error',
     'formatjs/no-offset': 'error',
   },

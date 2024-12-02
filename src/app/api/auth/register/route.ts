@@ -62,10 +62,12 @@ export async function POST(req: NextRequest) {
     const user: any = await createUser(data)
 
     if (user?.error) {
+      console.error(user)
       return NextResponse.json({ ...user, success: false }, { status: 500 })
     }
     return NextResponse.json(user)
   } catch (err) {
+    console.error(err)
     NextResponse.json(err, { status: 500 })
   }
 }

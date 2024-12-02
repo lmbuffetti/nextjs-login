@@ -5,16 +5,9 @@ import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
 import { useState } from 'react'
 
-import { LanguageList } from '@/@types/i18n'
 import handler from '@/api/controllers/frontend/apiCall'
 
-export default function AuthForm({
-  type,
-  lang,
-}: {
-  type: 'login' | 'register'
-  lang: LanguageList['lang']
-}) {
+export default function AuthForm({ type }: { type: 'login' | 'register' }) {
   const [formValue, setFormValue] = useState({
     name: '',
     email: '',
@@ -24,35 +17,37 @@ export default function AuthForm({
   const [formError, setFormError] = useState('')
   const router = useRouter()
 
+  const submitForm = async e => {
+    e.preventDefault()
+    if (type === 'login') {
+      signIn('credentials', {
+        redirect: false,
+        email: formValue.email,
+        password: formValue.password,
+      }).then(res => {
+        if (res.status === 200) {
+          router.refresh()
+          router.push(`/`)
+          setLoading(false)
+        } else {
+          setFormError(res.error)
+        }
+      })
+    } else {
+      const userData = handler('login', 'POST', formValue)
+      userData
+        .then(() => {
+          router.push(`/login`)
+        })
+        .catch(err => {
+          setFormError(err.message)
+        })
+    }
+  }
+
   return (
     <form
-      onSubmit={async e => {
-        e.preventDefault()
-        if (type === 'login') {
-          signIn('credentials', {
-            redirect: false,
-            email: formValue.email,
-            password: formValue.password,
-          }).then(res => {
-            if (res.status === 200) {
-              router.refresh()
-              router.push(`/${lang}/`)
-              setLoading(false)
-            } else {
-              setFormError(res.error)
-            }
-          })
-        } else {
-          const userData = handler('login', 'POST', formValue)
-          userData
-            .then(() => {
-              router.push(`/${lang}/login`)
-            })
-            .catch(err => {
-              setFormError(err.message)
-            })
-        }
-      }}
+      onSubmit={submitForm}
       className="flex flex-col space-y-4 bg-gray-50 px-4 py-8 sm:px-16"
     >
       {type === 'register' && (
@@ -118,6 +113,7 @@ export default function AuthForm({
       {formError && <div className="text-red-600">{formError}</div>}
 
       <button
+        type="submit"
         disabled={loading}
         className={`${
           loading
@@ -125,21 +121,13 @@ export default function AuthForm({
             : 'border-black bg-black text-white hover:bg-white hover:text-black'
         } flex h-10 w-full items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
       >
-        {loading ? (
-          "..."
-        ) : (
-          <>
-            {type === 'login'
-              ? "Sign in"
-              : 'Sign up'}
-          </>
-        )}
+        {loading ? '...' : <>{type === 'login' ? 'Sign in' : 'Sign up'}</>}
       </button>
       {type === 'login' ? (
         <p className="text-center text-sm text-gray-600">
-          Don't have an account?
+          Don&apos;t have an account?
           <Link
-            href={`/${lang}/register`}
+            href="/register"
             className="mx-1 font-semibold text-gray-800"
           >
             Sign up
@@ -150,7 +138,7 @@ export default function AuthForm({
         <p className="text-center text-sm text-gray-600">
           Already have an account?
           <Link
-            href={`/${lang}/login`}
+            href="/login"
             className="ml-1 font-semibold text-gray-800"
           >
             Sign in
