@@ -14,11 +14,11 @@ module.exports = defineConfig({
   env: {
     foo: 'bar',
     baz: 'quux',
-    API_URL: 'http://localhost:3000',
+    API_URL: 'https://nextjs-login-bay.vercel.app',
   },
 
   e2e: {
-    baseUrl: 'http://localhost:3000',
+    baseUrl: 'https://nextjs-login-bay.vercel.app',
     testIsolation: false,
     setupNodeEvents(on, config) {
       require('./cypress/plugins/index.js')(on, config)
