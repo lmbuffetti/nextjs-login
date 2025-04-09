@@ -44,11 +44,8 @@ jobs:
         env:
           NODE_ENV: test
 
-      - name: Wait for local server to be ready
-        uses: jakejarvis/wait-action@v0.1.0
-        with:
-          url: http://localhost:3000
-          timeout: 60
+      - name: Wait with wait-on
+        run: npx wait-on http://localhost:3000
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
