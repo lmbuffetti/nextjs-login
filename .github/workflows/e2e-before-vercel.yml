@@ -43,6 +43,7 @@ jobs:
         run: pnpm start &
         env:
           NODE_ENV: test
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
 
       - name: Wait for local server to be ready
         uses: jakejarvis/wait-action@v0.1.0
