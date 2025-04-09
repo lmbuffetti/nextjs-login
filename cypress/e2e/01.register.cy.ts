@@ -8,7 +8,7 @@ describe('Register Form', () => {
     it('visit url', () => {
       cy.viewport(<Cypress.ViewportPreset>device);
       cy.clearAllCookies();
-      cy.visit(`http://localhost:3000/register`);
+      cy.visit(`/register`);
     });
 
     it('fill form', () => {

@@ -9,7 +9,7 @@ describe('Login Form', () => {
     it('visit url', () => {
       cy.viewport(<Cypress.ViewportPreset>device);
       cy.clearAllCookies();
-      cy.visit(`http://localhost:3000/login`);
+      cy.visit(`/login`);
     });
 
     it('fill form', () => {
