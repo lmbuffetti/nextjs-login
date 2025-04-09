@@ -39,17 +39,17 @@ jobs:
       - name: Build app
         run: pnpm build
 
-      - name: Start app in background
-        run: pnpm start &
-        env:
-          NODE_ENV: test
-          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+#      - name: Start app in background
+#        run: pnpm start &
+#        env:
+#          NODE_ENV: test
+#          MONGODB_URI: ${{ secrets.MONGODB_URI }}
 
-      - name: Wait for local server to be ready
-        uses: jakejarvis/wait-action@v0.1.0
-        with:
-          url: http://localhost:3000
-          timeout: 120
+#      - name: Wait for local server to be ready
+#        uses: jakejarvis/wait-action@v0.1.0
+#        with:
+#          url: http://localhost:3000
+#          timeout: 120
 
       - name: Test manualmente se il server è attivo
         run: curl -I http://localhost:3000/login/
