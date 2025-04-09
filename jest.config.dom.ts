@@ -20,6 +20,9 @@ const customJestConfig = {
   testEnvironmentOptions: {
     url: 'http://localhost:3000',
   },
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1'
+  }
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
