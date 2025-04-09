@@ -1,9 +1,8 @@
-name: E2E Tests Before Deploy
+name: E2E Tests Before Deploy (pnpm)
 
 on:
   push:
-    branches:
-      - '*'
+    branches: [main]
 
 jobs:
   cypress-tests:
@@ -19,21 +18,23 @@ jobs:
           node-version: 20
           cache: 'pnpm'
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
 
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build app (optional, es. Next.js)
+      - name: Build app (if needed)
         run: pnpm build
 
-      - name: Start application
+      - name: Start app in background
         run: pnpm start &
         env:
           NODE_ENV: test
 
-      - name: Wait for localhost to be ready
+      - name: Wait for local server to be ready
         uses: jakejarvis/wait-action@v0.1.0
         with:
           url: http://localhost:3000
