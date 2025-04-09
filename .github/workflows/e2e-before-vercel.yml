@@ -16,16 +16,20 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
 
       - name: Build app (optional, es. Next.js)
-        run: npm run build
+        run: pnpm build
 
       - name: Start application
-        run: npm run start &
+        run: pnpm start &
         env:
           NODE_ENV: test
 
@@ -38,7 +42,7 @@ jobs:
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          start: npm run start
+          start: pnpm start
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 60
 
