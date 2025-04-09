@@ -1,9 +1,5 @@
 name: E2E Tests Before Deploy
 
-on:
-  pull_request:
-    branches: [main]
-
 jobs:
   cypress-tests:
     runs-on: ubuntu-latest
