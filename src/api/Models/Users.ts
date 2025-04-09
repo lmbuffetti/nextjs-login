@@ -1,7 +1,5 @@
 import {
-  buildSchema,
-  getModelForClass,
-  index,
+  buildSchema, getModelForClass,
   ModelOptions,
   post,
   prop,
@@ -12,7 +10,6 @@ import mongoose from 'mongoose'
 @post<UserClass>('save', function (doc) {
   if (doc) {
     doc.id = doc._id.toString()
-    doc._id = doc.id
   }
 })
 @ModelOptions({
@@ -24,7 +21,6 @@ import mongoose from 'mongoose'
     allowMixed: Severity.ALLOW,
   },
 })
-@index({ email: 1 })
 class UserClass {
   @prop()
   _id?: mongoose.Types.ObjectId

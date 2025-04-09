@@ -1,7 +1,7 @@
 import _mongoose, { connect } from 'mongoose'
 
 declare global {
-  // eslint-disable-next-line no-var
+   
   var mongoose: {
     promise: ReturnType<typeof connect> | null
     conn: typeof _mongoose | null
@@ -29,7 +29,7 @@ if (!cached) {
 
 async function connectDB(dbUrl: string = MONGODB_URI) {
   if (cached.conn) {
-    // eslint-disable-next-line no-console
+     
     // console.log('🚀 Using cached connection')
     return cached.conn
   }
@@ -39,12 +39,12 @@ async function connectDB(dbUrl: string = MONGODB_URI) {
     }
     cached.promise = connect(dbUrl!, opts)
       .then(mongoose => {
-        // eslint-disable-next-line no-console
+         
         // console.log('✅ New connection established')
         return mongoose
       })
       .catch(error => {
-        // eslint-disable-next-line no-console
+         
         // console.error('❌ Connection to database failed')
         return error
       })

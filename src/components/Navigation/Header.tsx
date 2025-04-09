@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import LogoWhite from '@/images/logo.png'
 
-type Header = {
+type HeaderType = {
   loggedUser?: {
     name?: string | null
     email?: string | null
@@ -12,7 +12,7 @@ type Header = {
   handleOpenSidebar: () => void
 }
 
-export default function Header({ handleOpenSidebar }: Header) {
+export default function Header({ handleOpenSidebar }: HeaderType) {
   return (
     <header>
       <nav className="fixed top-0 z-50 w-full border-b border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800">

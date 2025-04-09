@@ -1,4 +1,4 @@
-// These styles apply to every route in the application
+import React from 'react'
 import '@/assets/styles/globals.css'
 
 import { Analytics } from '@vercel/analytics/next'
@@ -6,8 +6,8 @@ import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { getServerSession } from 'next-auth/next'
 import NextTopLoader from 'nextjs-toploader'
-
 import { UserClass } from '@/api/Models/Users'
+
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import Sidebar from '@/components/Navigation/Sidebar'
 

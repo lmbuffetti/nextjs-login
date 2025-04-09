@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-header {
-    @apply bg-red-100;
-}
+/*header {*/
+/*    @apply bg-red-100;*/
+/*}*/

@@ -1,8 +1,10 @@
+import React from 'react';
+
 type InputType = {
   type: 'file' | 'text' | 'number' | 'password' | 'email' | 'tel' | 'url'
 }
 
-type InputText<T extends InputType['type']> = {
+type InputTextType<T extends InputType['type']> = {
   className?: string
   classNameInput?: string
   type: T
@@ -24,7 +26,7 @@ export default function InputText<T extends InputType['type']>({
   labelUploadFile,
   type,
   value,
-}: InputText<T>) {
+}: InputTextType<T>) {
   return (
     <div className={className}>
       <label htmlFor={name}>{label}</label>

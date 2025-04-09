@@ -1,4 +1,6 @@
-type Textaera = {
+import React from 'react'
+
+type TextareaType = {
   className?: string
   label?: string
   name: string
@@ -6,13 +8,13 @@ type Textaera = {
   value: string
 }
 
-export default function Textaera({
+export default function Textarea({
   className,
   label,
   name,
   value,
   onChange,
-}: Textaera) {
+}: TextareaType) {
   return (
     <div>
       <label htmlFor={name}>{label}</label>
