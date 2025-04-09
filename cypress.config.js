@@ -25,5 +25,6 @@ module.exports = defineConfig({
       addMatchImageSnapshotPlugin(on, config)
       return config
     },
+    supportFile: 'cypress/support/e2e.ts',
   },
 })

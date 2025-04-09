@@ -14,12 +14,12 @@ import {
 import logoWhite from '@/images/logoWhite.png'
 
 export default function Sidebar({ loggedUser }: { loggedUser: UserClass }) {
-  const [isOpen] = useState(false)
+  const [isOpen] = useState(true)
   return (
     <aside
       data-testid={isOpen ? 'logo-sidebar-open' : 'logo-sidebar-closed'}
       id="logo-sidebar"
-      className={`z-40 h-screen w-64 ${
+      className={`z-40 h-screen w-md ${
         isOpen ? '-translate-x-0' : '-translate-x-full'
       } border-r border-gray-200 bg-white transition-transform sm:translate-x-0 dark:border-gray-700 dark:bg-gray-800`}
     >

@@ -14,9 +14,6 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import '@cypress/code-coverage/support';
-import './commands';
+import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command'
 
-afterEach(() => {
-  cy.task('coverageReport');
-})
+addMatchImageSnapshotCommand()

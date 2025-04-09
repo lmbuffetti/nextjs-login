@@ -36,8 +36,12 @@ class UserClass {
   @prop({ required: true })
   password: string
 }
-
 const User = getModelForClass(UserClass)
-const UserSchema = buildSchema(UserClass)
+// const UserSchema = buildSchema(UserClassMongo)
 
-export { User, UserClass, UserSchema }
+// Controlla se il modello esiste già, altrimenti lo crea
+const UserClassMongo =
+  mongoose.models.UserClass ||
+  mongoose.model('UserClass', buildSchema(UserClass))
+
+export { User, UserClass, UserClassMongo }
