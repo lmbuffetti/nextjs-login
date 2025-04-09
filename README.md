@@ -19,7 +19,7 @@ To generate a new secret key run:
 
 `openssl rand -base64 32`
 
-To get a `MONGODB_URI` after created your account and signed in to your project, on the sidebar click on `Database` and then choose the tab `Overview` and after click on button `Connect`.
+To get a `NEXT_PUBLIC_MONGODB_URI`, to access to public variables NextJS require to use `NEXT_PUBLIC` before to get it from Vercel, after created your account and signed in to your project, on the sidebar click on `Database` and then choose the tab `Overview` and after click on button `Connect`.
 
 It will open a a modal, here select `Drivers` here copy the url under the third point (3. Add your connection string into your application code) until the last slash, you can ignore `?retryWrites=true&w=majority` and after the last slash add the name of the database you want to use.
 
