@@ -40,7 +40,7 @@ jobs:
         run: pnpm build
 
       - name: Start app in background
-        run: node .next/standalone/server.js &
+        run: pnpm start &
         env:
           NODE_ENV: test
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
