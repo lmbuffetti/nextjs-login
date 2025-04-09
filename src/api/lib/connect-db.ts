@@ -56,6 +56,7 @@ async function connectDB(dbUrl: string = MONGODB_URI) {
     cached.conn = await cached.promise
   } catch (e) {
     cached.promise = null
+    console.log(e)
     throw e
   }
 
