@@ -39,11 +39,11 @@ jobs:
       - name: Build app
         run: pnpm build
 
-#      - name: Start app in background
-#        run: pnpm start &
-#        env:
-#          NODE_ENV: test
-#          MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      - name: Start app in background
+        run: pnpm start &
+        env:
+          NODE_ENV: test
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
 
 #      - name: Wait for local server to be ready
 #        uses: jakejarvis/wait-action@v0.1.0
@@ -58,8 +58,8 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           start: pnpm run-test
-          wait-on: 'http://localhost:3000'
-          wait-on-timeout: 120
+#          wait-on: 'http://localhost:3000'
+#          wait-on-timeout: 120
 
       - name: Upload Cypress artifacts on failure
         if: failure()
