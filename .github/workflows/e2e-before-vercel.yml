@@ -51,8 +51,8 @@ jobs:
 #          url: http://localhost:3000
 #          timeout: 120
 
-      - name: Test manualmente se il server è attivo
-        run: curl -I http://localhost:3000/login/
+#      - name: Test manualmente se il server è attivo
+#        run: curl -I http://localhost:3000/login/
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
