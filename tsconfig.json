@@ -1,6 +1,13 @@
 {
   "compilerOptions": {
-    "types": ["cypress"],
+    "types": [
+      "jest",
+      "node",
+      "react",
+      "react-dom",
+      "cypress",
+      "next"
+    ],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "strictPropertyInitialization": false,
