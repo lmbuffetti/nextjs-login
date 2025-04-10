@@ -31,6 +31,7 @@ export default defineConfig([
         RequestInit: 'readonly',
         ...globals.browser,
         ...globals.node,
+        ...cypress.environments.globals.globals,
       },
     },
     plugins: {
