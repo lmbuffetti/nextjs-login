@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind is loaded once in globals.css (@import "tailwindcss") */
 
 /*header {*/
 /*    @apply bg-red-100;*/
