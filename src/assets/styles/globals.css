@@ -11,7 +11,7 @@ body {
 }
 
 .content {
-  @media screen(sm) {
+  @media (width >= 40rem) {
     padding-left: 255px;
   }
 }
