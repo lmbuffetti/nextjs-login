@@ -1,5 +1,4 @@
 const { defineConfig } = require('cypress')
-const { addMatchImageSnapshotPlugin } = require('cypress-image-snapshot/plugin')
 const codeCoverage = require('@cypress/code-coverage/task')
 
 module.exports = defineConfig({
@@ -23,7 +22,6 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       require('./cypress/plugins/index.js')(on, config)
       codeCoverage(on, config)
-      addMatchImageSnapshotPlugin(on, config)
       return config
     },
     supportFile: 'cypress/support/e2e.ts',
