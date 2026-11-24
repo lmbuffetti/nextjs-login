@@ -12,29 +12,49 @@
     "emitDecoratorMetadata": true,
     "strictPropertyInitialization": false,
     "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@/components/*": ["src/components/*"],
-      "@/pages/*": ["src/pages/*"],
-      "@/app/*": ["src/app/*"],
-      "@/api/*": ["src/api/*"],
-      "@/styles/*": ["src/assets/styles/*"],
-      "@/images/*": ["src/assets/images/*"],
-      "@/i18n/*": ["src/i18n/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@/components/*": [
+        "src/components/*"
+      ],
+      "@/pages/*": [
+        "src/pages/*"
+      ],
+      "@/app/*": [
+        "src/app/*"
+      ],
+      "@/api/*": [
+        "src/api/*"
+      ],
+      "@/styles/*": [
+        "src/assets/styles/*"
+      ],
+      "@/images/*": [
+        "src/assets/images/*"
+      ],
+      "@/i18n/*": [
+        "src/i18n/*"
+      ]
     },
     "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -48,7 +68,12 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "cypress",
-    "cypress.config.ts"
+    "cypress.config.ts",
+    ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules", ".next", "cypress"]
+  "exclude": [
+    "node_modules",
+    ".next",
+    "cypress"
+  ]
 }

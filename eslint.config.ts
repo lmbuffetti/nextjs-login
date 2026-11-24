@@ -31,12 +31,14 @@ export default defineConfig([
         RequestInit: 'readonly',
         ...globals.browser,
         ...globals.node,
-        ...cypress.environments.globals.globals,
+        ...((cypress.configs.globals.languageOptions?.globals ?? {}) as Record<string, 'readonly' | 'writable' | 'off'>),
       },
+    },
+    settings: {
+      react: { version: 'detect' },
     },
     plugins: {
       '@typescript-eslint': tseslint,
-      react: pluginReact,
       'jsx-a11y': jsxA11y,
     },
     rules: {

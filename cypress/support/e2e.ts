@@ -14,6 +14,3 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import { addMatchImageSnapshotCommand } from 'cypress-image-snapshot/command'
-
-addMatchImageSnapshotCommand()
